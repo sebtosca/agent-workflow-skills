@@ -1,5 +1,5 @@
 ---
-name: master-plan
+name: plan
 description: Synthesize DISCOVERY.md and RESEARCH.md into PLAN.md, a fully scoped plan of phases and tasks that takes the product from empty repo to finished goal. Use after research is done, or when the user asks for the build plan.
 ---
 
@@ -9,12 +9,12 @@ Write `PLAN.md`: the complete route from the current state to the finished produ
 
 ## Steps
 
-1. **Read `DISCOVERY.md` and `RESEARCH.md` in full**, plus the existing code if there is any. If either document is missing, stop and point the user to the `discovery` or `parallel-research` skill.
+1. **Read `DISCOVERY.md` and `RESEARCH.md` in full**, plus the existing code if there is any. If either document is missing, stop and point the user to the `discovery` or `research` skill.
 2. **Settle conflicts first.** Where research contradicts a discovery decision, or leaves a choice open, ask the user before planning around it. Record each resolution in the plan's Decisions section.
 3. **Draft the phases.** Each phase ends in something working and demonstrable: a running skeleton, then the first real feature end to end, then more features, then hardening and launch. Order them by dependency. Build the riskiest and most foundational parts early.
 4. **Break every phase into tasks.** A task is one focused change that one agent session can finish and verify. Every task needs all the fields in the template. Be exhaustive: a large product has dozens of tasks, and a plan that stops at the MVP leaves the end goal unplanned. Include setup, tests, deployment, and docs tasks. They are real work.
 5. **Check coverage.** Every feature and requirement in DISCOVERY.md must map to at least one task. List anything deliberately left out under Out of scope.
-6. **Show the user the phase list with task counts** and adjust it based on their feedback. Then tell them the next step is the `progress-tracker` skill, which creates PROGRESS.md from this plan.
+6. **Show the user the phase list with task counts** and adjust it based on their feedback. Then tell them the next step is the `progress` skill, which creates PROGRESS.md from this plan.
 
 ## Task rules
 

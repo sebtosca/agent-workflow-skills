@@ -1,5 +1,5 @@
 ---
-name: progress-tracker
+name: progress
 description: Create and maintain PROGRESS.md, the checklist of every phase and task in PLAN.md that lets an agent resume implementation after a context reset. Use when starting to implement PLAN.md, when resuming work in a fresh session, or when the user says "continue", "where did we leave off", or "progress".
 ---
 
@@ -14,7 +14,7 @@ Pick the branch that matches the repo:
 
 ## Set up
 
-1. Read `PLAN.md`. If it is missing, point the user to the `master-plan` skill.
+1. Read `PLAN.md`. If it is missing, point the user to the `plan` skill.
 2. Create `PROGRESS.md` from the template below. Include every phase and every task ID from PLAN.md, each with a one-line summary. Details stay in PLAN.md; PROGRESS.md points to them by ID.
 3. Add the resume pointer (below) to the project's agent instructions file: `CLAUDE.md` and/or `AGENTS.md`, whichever exists. Create `AGENTS.md` if neither does. This is what makes a brand-new session find PROGRESS.md before it does anything else.
 4. Commit both files, then start the Work loop at the first task.
@@ -43,7 +43,7 @@ Add this block to `CLAUDE.md` / `AGENTS.md`:
 
 ```markdown
 ## Implementation progress
-This project is being built from PLAN.md. At the start of every session, and after any context reset, read PROGRESS.md and continue from its "Current state" using the progress-tracker skill. Update PROGRESS.md after every task.
+This project is being built from PLAN.md. At the start of every session, and after any context reset, read PROGRESS.md and continue from its "Current state" using the progress skill. Update PROGRESS.md after every task.
 ```
 
 ## PROGRESS.md template

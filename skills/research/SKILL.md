@@ -1,5 +1,5 @@
 ---
-name: parallel-research
+name: research
 description: Research a project by splitting it into domains, dispatching one parallel sub-agent per domain, and compiling their verbatim findings into RESEARCH.md. Use after DISCOVERY.md is complete, or when the user says "research".
 ---
 
@@ -14,7 +14,7 @@ Turn the settled decisions in `DISCOVERY.md` into researched facts in `RESEARCH.
 3. **Dispatch every sub-agent in one message so they run in parallel.** Give each one the brief below. Each writes to its own file, `research/NN-<domain-slug>.md`. Separate files mean parallel agents never overwrite each other.
 4. **Check the results.** Every domain file must exist, have sources, and answer its questions. Re-dispatch any agent that failed or came back thin.
 5. **Assemble `RESEARCH.md` verbatim.** Write the header and index yourself. Then append each domain file byte-for-byte with a shell command such as `cat research/*.md >> RESEARCH.md`, so nothing passes through your own rewording. Keep the `research/` folder as the source.
-6. **Add the cross-cutting section** at the top: conflicts between domains, risks, and anything that should change a decision in DISCOVERY.md. Mark this section as coordinator-written. Tell the user the next step is the `master-plan` skill.
+6. **Add the cross-cutting section** at the top: conflicts between domains, risks, and anything that should change a decision in DISCOVERY.md. Mark this section as coordinator-written. Tell the user the next step is the `plan` skill.
 
 ## Sub-agent brief
 

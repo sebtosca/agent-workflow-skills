@@ -20,7 +20,7 @@ Interview the user until every decision about the product is settled, and record
 
    Cover the branches a builder will need: goal and users, core features and scope (MVP vs later), user flows, data, platforms and tech stack, integrations, auth, design/brand, constraints (budget, timeline, hosting), and what "done" looks like.
 4. **Log after every round, before asking the next.** Append each question to the Q&A log with the user's answer verbatim, then update the Decisions summary and Open questions. Never batch logging to the end: the context window may compact at any time.
-5. **Finish** when the frontier is empty: every branch visited and nothing silently assumed. Set Status to `complete`, list the research areas you think RESEARCH.md should cover, and tell the user the next step is the `parallel-research` skill.
+5. **Finish** when the frontier is empty: every branch visited and nothing silently assumed. Set Status to `complete`, list the research areas you think RESEARCH.md should cover, and tell the user the next step is the `research` skill.
 
 ## DISCOVERY.md template
 
