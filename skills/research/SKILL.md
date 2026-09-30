@@ -1,6 +1,6 @@
 ---
 name: research
-description: Research a project by splitting it into domains, dispatching one parallel sub-agent per domain, and compiling their verbatim findings into RESEARCH.md. Use after DISCOVERY.md is complete, or when the user says "research".
+description: "Research a project by splitting it into domains, dispatching one parallel sub-agent per domain, and compiling their verbatim findings into RESEARCH.md. Use after DISCOVERY.md is complete, or when the user says \"research\"."
 ---
 
 # Parallel research
@@ -9,7 +9,7 @@ Turn the settled decisions in `DISCOVERY.md` into researched facts in `RESEARCH.
 
 ## Steps
 
-1. **Read `DISCOVERY.md`.** If it is missing or its Status is not `complete`, tell the user and offer to run the `discovery` skill first.
+1. **Read `DISCOVERY.md`, `CONTEXT.md`, and any `docs/adr/` records.** If it is missing or its Status is not `complete`, tell the user and offer to run the `discovery` skill first.
 2. **Pick the domains.** Start from its "Suggested research areas". Choose 3–8 domains that do not overlap, each narrow enough for one agent. Examples: framework/stack, database and data model, auth, payments, a specific third-party API, hosting/deployment, competitor products, UI patterns, legal/compliance. Show the list to the user and confirm it before you dispatch.
 3. **Dispatch every sub-agent in one message so they run in parallel.** Give each one the brief below. Each writes to its own file, `research/NN-<domain-slug>.md`. Separate files mean parallel agents never overwrite each other.
 4. **Check the results.** Every domain file must exist, have sources, and answer its questions. Re-dispatch any agent that failed or came back thin.
@@ -20,7 +20,7 @@ Turn the settled decisions in `DISCOVERY.md` into researched facts in `RESEARCH.
 
 Fill in the brackets for each agent:
 
-> You are researching **[domain]** for this project: [2–4 sentence product summary]. Relevant decisions from DISCOVERY.md: [the decisions that touch this domain, with their Q numbers].
+> You are researching **[domain]** for this project: [2–4 sentence product summary]. Relevant decisions from DISCOVERY.md: [the decisions that touch this domain, with their Q numbers and any ADRs]. Glossary terms to use: [the CONTEXT.md terms that touch this domain].
 >
 > Answer these questions: [3–6 specific questions, e.g. "Which auth library fits a Next.js 15 app router project, and how is it set up?"].
 >
