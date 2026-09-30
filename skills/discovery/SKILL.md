@@ -5,7 +5,7 @@ description: "Grill the user about a product idea (grill-with-docs style) and lo
 
 # Discovery
 
-Interview the user until every decision about the product is settled, and record the whole interview in `DISCOVERY.md` at the project root. This is the first step of seven: DISCOVERY → RESEARCH → PLAN → PRD → ARCHITECTURE → AGENTS → PROGRESS.
+Interview the user until every decision about the product is settled, and record the whole interview in `DISCOVERY.md` at the project root. This is the first step of nine: DISCOVERY → RESEARCH → PLAN → PRD → ARCHITECTURE → THREAT-MODEL → SECURITY → AGENTS → PROGRESS.
 
 This is Matt Pocock's `grill-with-docs` with a log added. Load the `grilling` and `domain-modeling` skills (in Claude Code they may be named `mattpocock-skills:grilling` and `mattpocock-skills:domain-modeling`) and follow both. `grilling` drives the interview; `domain-modeling` keeps the `CONTEXT.md` glossary and `docs/adr/` decision records. This skill adds the DISCOVERY.md log on top. If those skills aren't installed, use the round format in step 3 and write CONTEXT.md and ADRs yourself as described in step 4. Later agents read it cold, with no access to this chat, so it must stand on its own.
 

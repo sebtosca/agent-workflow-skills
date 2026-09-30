@@ -14,7 +14,7 @@ Write `PLAN.md`: the complete route from the current state to the finished produ
 3. **Draft the phases.** Each phase ends in something working and demonstrable: a running skeleton, then the first real feature end to end, then more features, then hardening and launch. Order them by dependency. Build the riskiest and most foundational parts early.
 4. **Break every phase into tasks.** A task is one focused change that one agent session can finish and verify. Every task needs all the fields in the template. Be exhaustive: a large product has dozens of tasks, and a plan that stops at the MVP leaves the end goal unplanned. Include setup, tests, deployment, and docs tasks. They are real work.
 5. **Check coverage.** Every feature and requirement in DISCOVERY.md must map to at least one task. List anything deliberately left out under Out of scope.
-6. **Show the user the phase list with task counts** and adjust it based on their feedback. Then tell them the next step is the `prd` skill. The PRD, ARCHITECTURE, and AGENTS steps may append tasks to this plan, which is why task IDs are never renumbered.
+6. **Show the user the phase list with task counts** and adjust it based on their feedback. Then tell them the next step is the `prd` skill. The PRD, ARCHITECTURE, THREAT-MODEL, and AGENTS steps may append tasks to this plan, which is why task IDs are never renumbered.
 
 ## Task rules
 

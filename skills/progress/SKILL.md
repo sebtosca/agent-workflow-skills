@@ -14,6 +14,7 @@ It is the last of the project documents, and the only one that changes on every 
 | `PLAN.md` | What to build next | Task list, with "Done when" for each task |
 | `PRD.md` | What it must do for the user | Acceptance criteria for each user story |
 | `ARCHITECTURE.md` | Where the code goes and which rules must hold | Codemap and invariants |
+| `THREAT-MODEL.md` | What could be attacked and what stops it | Mitigations to build, phase security checklist |
 | `AGENTS.md` | How to work in this repo | Commands, conventions, and the resume pointer |
 
 Pick the branch that matches the repo:
@@ -23,7 +24,7 @@ Pick the branch that matches the repo:
 
 ## Set up
 
-1. Read `PLAN.md`, `PRD.md`, `ARCHITECTURE.md`, and `AGENTS.md`. If one is missing, point the user to the skill that makes it: `plan`, `prd`, `architecture`, or `agents-md`.
+1. Read `PLAN.md`, `PRD.md`, `ARCHITECTURE.md`, `THREAT-MODEL.md`, and `AGENTS.md`. If one is missing, point the user to the skill that makes it: `plan`, `prd`, `architecture`, `threat-model`, or `agents-md`.
 2. Create `PROGRESS.md` from the template below. Include every phase and every task ID from PLAN.md, each with a one-line summary and the user stories it serves, taken from PRD.md's "Story → plan map". Details stay in PLAN.md; PROGRESS.md points to them by ID.
 3. Make sure `AGENTS.md` has the "Implementation progress" section (the resume pointer below). If a `CLAUDE.md` exists, make sure it imports `@AGENTS.md`. This is what makes a brand-new session find PROGRESS.md before it does anything else.
 4. Commit, then start the Work loop at the first task.
@@ -39,9 +40,9 @@ Pick the branch that matches the repo:
 
 For each task:
 
-1. **Start**: mark it `[~]` and set **Current state** to this task, with a line on your approach. Read the PLAN.md task, the acceptance criteria of its PRD stories, and the ARCHITECTURE.md codemap entry and invariants for the area you'll touch.
+1. **Start**: mark it `[~]` and set **Current state** to this task, with a line on your approach. Read the PLAN.md task, the acceptance criteria of its PRD stories, the ARCHITECTURE.md codemap entry and invariants for the area you'll touch, and any THREAT-MODEL.md threats the task mitigates or touches. If the task touches auth, user input, personal data, uploads, or an external service, load the `security-and-hardening` skill too.
 2. **Build** it until the PLAN.md "Done when" criteria pass, and the story's acceptance criteria too once the task finishes that story. Put code where ARCHITECTURE.md's codemap says it goes, and follow AGENTS.md's conventions.
-3. **Keep the docs true, in the same commit.** If the task added a module, changed data flow, or added an external service, update ARCHITECTURE.md. If it added or changed a command, a convention, or a gotcha, update AGENTS.md (replace any `(planned)` command with the real one). If it changed product behaviour, stop and ask the user before editing PRD.md.
+3. **Keep the docs true, in the same commit.** If the task added a module, changed data flow, or added an external service, update ARCHITECTURE.md. If it added or changed a command, a convention, or a gotcha, update AGENTS.md (replace any `(planned)` command with the real one). If it added a trust boundary, an asset, or an external service, add the new threats to THREAT-MODEL.md. If it changed product behaviour, stop and ask the user before editing PRD.md.
 4. **Finish**: mark it `[x]` with the date and commit hash. Update Current state to the next task. Add a Session log line. Commit the code and docs together, with the task ID in the message (`P2.T4: add login form`).
 5. Anything that changed along the way goes in **Deviations**: a changed approach, a task you added (give it the next free ID in PLAN.md too), or a task you skipped. Put anything that stops you in **Blockers**, and ask the user.
 
@@ -53,8 +54,9 @@ When the last task of a phase is done, before starting the next phase:
 
 1. Run the phase checkpoint from PLAN.md.
 2. Check every PRD story this phase completes against its acceptance criteria, and mark it verified in the PRD coverage line.
-3. Compare ARCHITECTURE.md with the actual code. Fix any drift, and set its Status to `built` once no Planned changes remain. Check that every AGENTS.md command runs.
-4. Record the result on the phase heading, then commit.
+3. Run THREAT-MODEL.md's Phase checklist. Mark each mitigation built this phase, and switch the model's Status to `built` once it describes the real code. If a release ships this phase, update SECURITY.md's supported-versions table.
+4. Compare ARCHITECTURE.md with the actual code. Fix any drift, and set its Status to `built` once no Planned changes remain. Check that every AGENTS.md command runs.
+5. Record the result on the phase heading, then commit.
 
 ## Resume pointer
 
@@ -86,7 +88,7 @@ PRD coverage: <verified>/<total> stories verified
 Legend: [ ] todo · [~] in progress · [x] done · [-] skipped
 
 ### Phase 1 — <name> (3/3) ✅ checkpoint passed <date> · stories verified: US-1, US-2
-- [x] P1.T1 — <summary> (US-1) · <date> · <commit>
+- [x] P1.T1 — <summary> (US-1, TM-003) · <date> · <commit>
 - [x] P1.T2 — <summary> · <date> · <commit>
 
 ### Phase 2 — <name> (1/6)

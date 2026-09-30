@@ -15,7 +15,7 @@ Write `ARCHITECTURE.md`: the map a new contributor (human or agent) reads to fin
    - **Code exists**: describe what is really there, checked against the repo. Wherever the code differs from the plan, the code is the truth. Note each difference under Planned changes.
 3. **Write `ARCHITECTURE.md` from the template below.** Keep it short enough to read in one sitting: every recurring contributor reads it. Include only things that rarely change.
 4. **Check for gaps against PLAN.md.** If the architecture needs work the plan lacks (a queue, a migration step, an auth middleware), append tasks to PLAN.md with the next free IDs and note them in its Decisions section.
-5. **Tell the user** the next step is the `agents-md` skill.
+5. **Tell the user** the next step is the `threat-model` skill.
 
 ## Writing rules
 
